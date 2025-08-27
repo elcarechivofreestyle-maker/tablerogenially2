@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <title>Tablero Estable</title>
   <style>
+    .etiqueta {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 12px;
+  color: #ccc;
+  background: rgba(0,0,0,0.5);
+  padding: 2px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+}
     html, body {
       margin: 0;
       padding: 0;
@@ -54,9 +65,16 @@
   // Crear 25 casillas
   for (let i = 0; i < 25; i++) {
     const casilla = document.createElement("div");
-    casilla.className = "casilla";
-    casilla.id = "casilla-" + i;
-    tablero.appendChild(casilla);
+casilla.className = "casilla";
+casilla.id = "casilla-" + i;
+
+// Crear etiqueta de nombre
+const etiqueta = document.createElement("span");
+etiqueta.className = "etiqueta";
+etiqueta.textContent = "C" + (i + 1); // Puedes cambiar el formato aquí
+
+casilla.appendChild(etiqueta);
+tablero.appendChild(casilla);
   }
 
   // Lista de fichas
